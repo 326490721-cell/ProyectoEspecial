@@ -1,3 +1,13 @@
+/* Usa el GIF del proyecto como fondo de la página de inicio de sesión. */
+.login-page {
+    background-color: rgb(47, 45, 56);
+    background-image: url("../assets/BackGround.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 /* Fondo y centrado del título exclusivo de inicio de sesión. */
 .login-page .baner {
     display: grid;

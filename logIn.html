@@ -32,22 +32,24 @@
   </header>
         <!-- Activa las interacciones del menú. -->
         <script src="scripts/Menu.js" defer></script>
-  <!-- Encabezado visual de la página de inicio de sesión. -->
-  <div class="baner">
-      <h1>Log In</h1>
-    </div>
   <!-- Tarjeta con imagen y formulario de acceso. -->
   <main class="contenedor login-card">
       <img class="nyan-cat" src="assets/NyanCat.gif" alt="Nyan Cat">
     <h2>Log In to your account</h2>
     <!-- Campos requeridos para escribir usuario y contraseña. -->
-    <form class="login-form" action="logIn.html" method="post">
+    <form class="login-form" action="scripts/Login.php" method="post">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required placeholder="User123">
+        <input type="text" id="username" name="username" required placeholder="User123"
+               pattern="[A-Za-z0-9]{3,20}" title="Usa de 3 a 20 letras o números."
+               autocomplete="username">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required placeholder="1234-5678">
+        <input type="password" id="password" name="password" required placeholder="1234-5678"
+               pattern="[0-9]{4}-[0-9]{4}" title="Usa el formato 1234-5678."
+               autocomplete="current-password">
         <button class="login-submit" type="submit">Log In</button>
       </form>
   </main>
+        <!-- Valida el formato antes de enviar el formulario al procesador PHP. -->
+        <script src="scripts/LogIn.js" defer></script>
     </body>
 </html>

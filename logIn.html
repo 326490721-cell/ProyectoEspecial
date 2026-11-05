@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FrikSix Arcade - Log In</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/logIn.css">
     </head>
-    <body>
+    <body class="login-page">
         <header class="bar">
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
-    <a class="brand" href="index.html">FrikSix Arcade</a>
+    <a class="brand" href="index.html">FrikSix Log In</a>
     <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
       <a href="index.html">Home</a>
       <a href="catalogo.html">Catalog</a>
@@ -25,5 +26,19 @@
     </div>
   </header>
         <script src="scripts/Menu.js" defer></script>
+  <div class="baner">
+      <h1>Log In</h1>
+    </div>
+  <main class="contenedor login-card">
+      <img class="nyan-cat" src="assets/NyanCat.gif" alt="Nyan Cat">
+    <h2>Log In to your account</h2>
+    <form class="login-form" action="logIn.html" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required placeholder="User123">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required placeholder="1234-5678">
+        <button class="login-submit" type="submit">Log In</button>
+      </form>
+  </main>
     </body>
 </html>

@@ -1,3 +1,4 @@
+/* Fondo y centrado del título exclusivo de inicio de sesión. */
 .login-page .baner {
     display: grid;
     min-height: clamp(5rem, 12vh, 8rem);
@@ -5,10 +6,12 @@
     background: linear-gradient(135deg, rgb(47, 45, 56), rgb(87, 30, 112));
 }
 
+/* Quita el margen para centrar el título del banner. */
 .login-page .baner h1 {
     margin: 0;
 }
 
+/* Tarjeta que contiene la imagen y el formulario de acceso. */
 .login-card {
     width: min(90% - 2rem, 32rem);
     margin: 2rem auto;
@@ -18,6 +21,7 @@
     font-family: "Pixeled", sans-serif;
 }
 
+/* Estilo del título que introduce el formulario. */
 .login-card h2 {
     margin: 0 0 1.5rem;
     color: white;
@@ -26,16 +30,19 @@
     text-align: center;
 }
 
+/* Ordena etiquetas, campos y botón en una columna. */
 .login-form {
     display: grid;
     gap: 0.65rem;
 }
 
+/* Da contraste y peso a las etiquetas de los campos. */
 .login-form label {
     color: rgba(255, 255, 255, 0.85);
     font-weight: 700;
 }
 
+/* Estilos compartidos para las casillas de usuario y contraseña. */
 .login-form input {
     width: 100%;
     min-height: 2.75rem;
@@ -48,12 +55,14 @@
     font: inherit;
 }
 
+/* Indicador de foco para quienes navegan con teclado. */
 .login-form input:focus-visible {
     border-color: rgb(255, 238, 0);
     outline: 2px solid rgb(255, 238, 0);
     outline-offset: 2px;
 }
 
+/* Apariencia principal del botón de envío. */
 .login-submit {
     min-height: 2.9rem;
     margin-top: 0.5rem;
@@ -68,16 +77,19 @@
     transition: background-color 160ms ease, transform 160ms ease;
 }
 
+/* Realce del botón al pasar el cursor. */
 .login-submit:hover {
     transform: translateY(-2px);
     background: rgb(139, 0, 204);
 }
 
+/* Indicador visible cuando el botón recibe foco. */
 .login-submit:focus-visible {
     outline: 3px solid rgb(255, 238, 0);
     outline-offset: 3px;
 }
 
+/* Reduce márgenes y adapta la tarjeta en pantallas pequeñas. */
 @media (max-width: 600px) {
     .login-card {
         width: calc(100% - 2rem);
@@ -85,6 +97,7 @@
     }
 }
 
+/* Respeta la preferencia del usuario de reducir movimiento. */
 @media (prefers-reduced-motion: reduce) {
     .login-submit {
         transition: none;

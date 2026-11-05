@@ -1,3 +1,4 @@
+/* Barra superior que contiene la marca, el menú y los logotipos. */
 .bar {
     position: relative;
     z-index: 1;
@@ -13,6 +14,7 @@
     font-weight: bold;
 }
 
+/* Botón que despliega el menú en pantallas pequeñas. */
 .menu-toggle {
     display: grid;
     place-items: center;
@@ -27,6 +29,7 @@
     cursor: pointer;
 }
 
+/* Construye visualmente las tres líneas del icono de menú. */
 .menu-icon {
     position: relative;
     display: block;
@@ -37,6 +40,7 @@
     transition: background-color 180ms ease;
 }
 
+/* Estilos compartidos para las líneas decorativas del icono. */
 .menu-icon::before,
 .menu-icon::after {
     position: absolute;
@@ -49,6 +53,7 @@
     transition: top 180ms ease, transform 180ms ease;
 }
 
+/* Coloca las líneas superior e inferior del icono. */
 .menu-icon::before {
     top: -7px;
 }
@@ -57,6 +62,7 @@
     top: 7px;
 }
 
+/* Convierte las líneas del icono en una X cuando el menú está abierto. */
 .menu-toggle[aria-expanded="true"] .menu-icon {
     background-color: transparent;
 }
@@ -71,21 +77,25 @@
     transform: rotate(-45deg);
 }
 
+/* Resalta el botón al pasar el cursor o navegar con el teclado. */
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+/* Añade un indicador de foco visible para los controles del encabezado. */
 .menu-toggle:focus-visible,
 .menu-panel a:focus-visible {
     outline: 3px solid rgb(255, 238, 0);
     outline-offset: 3px;
 }
 
+/* Empuja los logotipos hacia el extremo derecho de la barra. */
 .brand {
     margin-right: auto;
 }
 
+/* Reserva un marco uniforme para cada logotipo. */
 .image-frame {
     flex: 0 0 6.5rem;
     width: 6.5rem;
@@ -95,12 +105,14 @@
     justify-content: center;
 }
 
+/* Reduce el marco del logotipo local respecto al institucional. */
 .image-frame--local {
     flex-basis: 4.5rem;
     width: 4.5rem;
     height: 4.5rem;
 }
 
+/* Ajusta las imágenes de los logotipos sin deformarlas. */
 .image-frame img {
     display: block;
     max-width: 100%;
@@ -108,6 +120,7 @@
     object-fit: contain;
 }
 
+/* Posiciona el menú desplegable debajo de la barra. */
 .menu-panel {
     position: absolute;
     top: 100%;
@@ -118,10 +131,12 @@
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
+/* Respeta el atributo hidden del menú. */
 .menu-panel[hidden] {
     display: none;
 }
 
+/* Presenta cada opción del menú como un enlace de bloque. */
 .menu-panel a {
     display: block;
     padding: 0.75rem 1rem;
@@ -130,10 +145,12 @@
     text-decoration: none;
 }
 
+/* Resalta la opción sobre la que se encuentra el cursor. */
 .menu-panel a:hover {
     background-color: rgba(174, 0, 255, 0.35);
 }
 
+/* Capa de fondo translúcida con desenfoque. */
 .blur {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
@@ -141,21 +158,25 @@
     width: 100%;
 }
 
+/* Conserva el color del encabezado en el enlace de marca. */
 .bar .brand {
     color: inherit;
     text-decoration: none;
 }
 
+/* Contenedor a todo lo ancho para el banner. */
 .baner {
     width: 100%;
 }
 
+/* Hace que el banner ocupe el ancho disponible sin deformarse. */
 .baner img {
     display: block;
     width: 100%;
     height: auto;
 }
 
+/* Caja de contenido reutilizable con borde y fondo del sitio. */
 .contenedor {
     width: min(90%, 72rem);
     margin: 0 auto 2rem;

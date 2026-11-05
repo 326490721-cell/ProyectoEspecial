@@ -1,3 +1,4 @@
+/* Carga los estilos base, de estructura, contenido y adaptación móvil. */
 @import url("./css/base.css");
 @import url("./css/layout.css");
 @import url("./css/content.css");

@@ -1,3 +1,4 @@
+/* Centra y dimensiona el título principal de una caja de contenido. */
 .contenedor h1 {
     margin: 0 0 0.5rem;
     font-size: clamp(1rem, 2.8vw, 1.8rem);
@@ -5,6 +6,7 @@
     text-align: center;
 }
 
+/* Presenta subtítulos con menor énfasis visual. */
 .contenedor h3 {
     margin: 0 0 1.5rem;
     font-size: clamp(0.7rem, 1.2vw, 0.9rem);
@@ -12,36 +14,43 @@
     text-align: center;
 }
 
+/* Da espacio entre las filas de la tabla informativa. */
 .contenedor table {
     width: 100%;
     table-layout: fixed;
     border-spacing: 0 0.75rem;
 }
 
+/* Alinea las celdas arriba y permite cortar palabras largas. */
 .contenedor td {
     vertical-align: top;
     overflow-wrap: anywhere;
 }
 
+/* Reserva un cuarto del ancho para la primera columna. */
 .contenedor td:first-child {
     width: 25%;
 }
 
+/* Quita márgenes de los encabezados internos de la caja. */
 .contenedor h2,
 .contenedor h4 {
     margin: 0;
 }
 
+/* Ajusta la escala y altura de los encabezados de sección. */
 .contenedor h2 {
     font-size: clamp(0.75rem, 1.3vw, 1rem);
     line-height: 1.8;
 }
 
+/* Mantiene el texto descriptivo con peso normal. */
 .contenedor h4 {
     font-size: inherit;
     font-weight: normal;
 }
 
+/* Estilo para imágenes de fondo reutilizables. */
 .fondo {
     display: block;
     max-width: 100%;
@@ -49,6 +58,7 @@
     object-fit: cover;
 }
 
+/* Centra Nyan Cat y limita su tamaño conservando proporciones. */
 .nyan-cat {
     display: block;
     width: min(100%, 10rem);
@@ -56,6 +66,7 @@
     margin: 0 auto 1rem;
 }
 
+/* Permite recorrer horizontalmente la lista de consolas. */
 .carrusel {
     display: flex;
     gap: 1rem;
@@ -67,6 +78,7 @@
     overscroll-behavior-x: contain;
 }
 
+/* Tarjeta individual de consola con ajuste al desplazamiento. */
 .console-card {
     flex: 0 0 clamp(16rem, 35vw, 24rem);
     margin: 0;
@@ -78,6 +90,7 @@
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
+/* Mantiene las imágenes de consolas dentro de cada tarjeta. */
 .carrusel img {
     display: block;
     width: 100%;
@@ -85,17 +98,20 @@
     object-fit: contain;
 }
 
+/* Centra el nombre de cada consola debajo de su imagen. */
 .console-card figcaption {
     margin-top: 0.75rem;
     text-align: center;
 }
 
+/* Alineación y espaciado general de los títulos principales. */
 h1 {
     text-align: center;
     line-height: 1.5;
     margin-bottom: 1rem;
 }
 
+/* Presentación base de enlaces con apariencia de botón. */
 .button_text {
     color: white;
     text-decoration: none;
@@ -104,12 +120,14 @@ h1 {
     justify-content: center;
 }
 
+/* Cambio de apariencia al pasar el cursor por los enlaces-botón. */
 .button_text:hover {
     color: rgb(174, 0, 255);
     text-decoration: underline;
     cursor: pointer;
 }
 
+/* Efecto emergente para resaltar la tarjeta activa del carrusel. */
 .console-card:hover {
     position: relative;
     z-index: 1;
@@ -122,6 +140,7 @@ h1 {
     cursor: pointer;
 }
 
+/* Desactiva las transiciones si el usuario prefiere menos movimiento. */
 @media (prefers-reduced-motion: reduce) {
     .console-card {
         transition: none;

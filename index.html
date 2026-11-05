@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <!-- Configuración del documento y hoja de estilos compartida. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FrikSix Arcade</title>
@@ -9,16 +10,20 @@
 </head>
 
 <body>
+  <!-- Barra superior con acceso al menú y las identidades del proyecto. -->
   <header class="bar">
+    <!-- El botón controla el menú desplegable y anuncia su estado. -->
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
     <a class="brand" href="index.html">FrikSix Arcade</a>
+    <!-- Enlaces principales; Menu.js controla cuándo se muestran. -->
     <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
       <a href="index.html">Home</a>
       <a href="catalogo.html">Catalog</a>
       <a href="logIn.html">Log In</a>
     </nav>
+    <!-- Logotipos institucional y del arcade. -->
     <div class="image-frame">
       <img src="assets/logos/ENP_UNAM.png" alt="Logo ENP UNAM">
     </div>
@@ -26,9 +31,11 @@
       <img src="assets/logos/Friksix Arcade.jpeg" alt="Logo FrikSix Arcade">
     </div>
   </header>
+  <!-- Imagen panorámica de presentación. -->
   <div class="baner">
       <img src="assets/logos/Baner.jpeg" alt="Banner image">
     </div>
+  <!-- Misión, visión y valores del establecimiento. -->
   <div class="contenedor">
     <h1>Welcome to FrikSix Arcade</h1>
     <h3>There is love in every bit</h3>
@@ -61,8 +68,10 @@
       </tr>
     </table>
   </div>
+  <!-- Carrusel horizontal con las consolas y máquinas disponibles. -->
   <h1>Our GameStations</h1>
   <section class="carrusel" aria-label="Game consoles" tabindex="0">
+    <!-- Cada tarjeta muestra una imagen y el nombre de una consola. -->
     <figure class="console-card">
       <img src="assets/consolas/MaquinitaMultijuegos.jpg" alt="Multigame arcade machine">
       <figcaption>Multigame Arcade</figcaption>
@@ -104,6 +113,7 @@
       <figcaption>Pump It Up</figcaption>
     </figure>
   </section>
+  <!-- Script que activa el menú en esta página. -->
   <script src="scripts/Menu.js" defer></script>
 </body>
 

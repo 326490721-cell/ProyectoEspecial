@@ -1,3 +1,4 @@
+/* Registra la fuente pixelada del sitio y la carga sin bloquear el texto. */
 @font-face {
     font-family: "Pixeled";
     src: url("../fonts/Pixeled.ttf") format("truetype");
@@ -6,16 +7,19 @@
     font-display: swap;
 }
 
+/* Hace que el tamaño de elementos incluya relleno y bordes. */
 * {
     box-sizing: border-box;
 }
 
+/* Elimina márgenes predeterminados y asegura una altura mínima global. */
 html,
 body {
     min-height: 100%;
     margin: 0;
 }
 
+/* Define el fondo, la tipografía y los colores generales de la página. */
 body {
     min-height: 100vh;
     background-color: rgb(47, 45, 56);

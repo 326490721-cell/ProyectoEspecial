@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Metadatos, título y hojas de estilos generales y de inicio de sesión. -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FrikSix Arcade - Log In</title>
@@ -8,16 +9,20 @@
         <link rel="stylesheet" href="css/logIn.css">
     </head>
     <body class="login-page">
+        <!-- Barra superior compartida con las demás páginas. -->
         <header class="bar">
+    <!-- Botón que abre y cierra el menú de navegación. -->
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
     <a class="brand" href="index.html">FrikSix Log In</a>
+    <!-- Navegación entre inicio, catálogo e inicio de sesión. -->
     <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
       <a href="index.html">Home</a>
       <a href="catalogo.html">Catalog</a>
       <a href="logIn.html">Log In</a>
     </nav>
+    <!-- Logotipos institucional y del local. -->
     <div class="image-frame">
       <img src="assets/logos/ENP_UNAM.png" alt="Logo ENP UNAM">
     </div>
@@ -25,13 +30,17 @@
       <img src="assets/logos/Friksix Arcade.jpeg" alt="Logo FrikSix Arcade">
     </div>
   </header>
+        <!-- Activa las interacciones del menú. -->
         <script src="scripts/Menu.js" defer></script>
+  <!-- Encabezado visual de la página de inicio de sesión. -->
   <div class="baner">
       <h1>Log In</h1>
     </div>
+  <!-- Tarjeta con imagen y formulario de acceso. -->
   <main class="contenedor login-card">
       <img class="nyan-cat" src="assets/NyanCat.gif" alt="Nyan Cat">
     <h2>Log In to your account</h2>
+    <!-- Campos requeridos para escribir usuario y contraseña. -->
     <form class="login-form" action="logIn.html" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required placeholder="User123">

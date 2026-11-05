@@ -1,0 +1,192 @@
+@font-face {
+    font-family: "Pixeled";
+    src: url("./fonts/Pixeled.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(47, 45, 56);
+    font-family: "Pixeled", sans-serif;
+    font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+    letter-spacing: 0;
+    line-height: 1.8;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}
+
+.bar {
+    min-height: clamp(3rem, 8vh, 5rem);
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(174, 0, 255);
+    color: white;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: bold;
+}
+
+.bar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.baner {
+    min-height: clamp(6rem, 20vh, 12rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(47, 45, 56);
+    color: white;
+}
+
+.contenedor {
+    width: min(90%, 72rem);
+    min-height: clamp(18rem, 65vh, 52rem);
+    margin: 0 auto 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 5px solid rgb(255, 238, 0);
+    border-radius: 12px;
+    background-color: rgb(47, 45, 56);
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1rem, 2.8vw, 1.8rem);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.contenedor h3 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.65);
+    text-align: center;
+}
+
+.contenedor table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0 0.75rem;
+}
+
+.contenedor td {
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.contenedor td:first-child {
+    width: 25%;
+}
+
+.contenedor h2,
+.contenedor h4 {
+    margin: 0;
+}
+
+.contenedor h2 {
+    font-size: clamp(0.75rem, 1.3vw, 1rem);
+    line-height: 1.8;
+}
+
+.contenedor h4 {
+    font-size: inherit;
+    font-weight: normal;
+}
+
+.fondo {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.carrusel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carrusel img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+h1 {
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: clamp(0.65rem, 3vw, 0.8rem);
+    }
+
+    .bar {
+        min-height: 3rem;
+        font-size: clamp(0.75rem, 3.5vw, 1rem);
+    }
+
+    .baner {
+        min-height: clamp(2.5rem, 8vh, 4rem);
+    }
+
+    .contenedor {
+        width: calc(100% - 1rem);
+        min-height: auto;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-width: 3px;
+    }
+
+    .contenedor h1 {
+        font-size: clamp(0.9rem, 5vw, 1.25rem);
+    }
+
+    .contenedor h3 {
+        margin-bottom: 1rem;
+        font-size: 0.7rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 0.5rem;
+    }
+
+    .contenedor tr {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+        padding: 0.5rem 0;
+    }
+
+    .contenedor td:first-child {
+        width: auto;
+    }
+
+    .contenedor h2 {
+        font-size: 0.75rem;
+    }
+}

@@ -95,6 +95,12 @@
     justify-content: center;
 }
 
+.image-frame--local {
+    flex-basis: 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
 .image-frame img {
     display: block;
     max-width: 100%;
@@ -141,13 +147,13 @@
 }
 
 .baner {
-    min-height: clamp(6rem, 20vh, 12rem);
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(47, 45, 56);
-    color: white;
+}
+
+.baner img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .contenedor {

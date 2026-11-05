@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Pixeled";
+    src: url("../fonts/Pixeled.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(47, 45, 56);
+    font-family: "Pixeled", sans-serif;
+    font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+    letter-spacing: 0;
+    line-height: 1.8;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

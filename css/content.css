@@ -1,0 +1,85 @@
+.contenedor h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1rem, 2.8vw, 1.8rem);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.contenedor h3 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.65);
+    text-align: center;
+}
+
+.contenedor table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0 0.75rem;
+}
+
+.contenedor td {
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.contenedor td:first-child {
+    width: 25%;
+}
+
+.contenedor h2,
+.contenedor h4 {
+    margin: 0;
+}
+
+.contenedor h2 {
+    font-size: clamp(0.75rem, 1.3vw, 1rem);
+    line-height: 1.8;
+}
+
+.contenedor h4 {
+    font-size: inherit;
+    font-weight: normal;
+}
+
+.fondo {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.carrusel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carrusel img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+h1 {
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.button_text {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_text:hover {
+    color: rgb(174, 0, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}

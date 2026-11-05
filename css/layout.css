@@ -1,0 +1,148 @@
+.bar {
+    position: relative;
+    z-index: 1;
+    min-height: clamp(3rem, 8vh, 5rem);
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(174, 0, 255);
+    color: white;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 3px solid currentColor;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.menu-icon {
+    position: relative;
+    display: block;
+    width: 1.4rem;
+    height: 3px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: background-color 180ms ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: inherit;
+    background-color: currentColor;
+    content: "";
+    transition: top 180ms ease, transform 180ms ease;
+}
+
+.menu-icon::before {
+    top: -7px;
+}
+
+.menu-icon::after {
+    top: 7px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon {
+    background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle:focus-visible,
+.menu-panel a:focus-visible {
+    outline: 3px solid rgb(255, 238, 0);
+    outline-offset: 3px;
+}
+
+.brand {
+    margin-right: auto;
+}
+
+.menu-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: min(18rem, 100vw);
+    padding: 0.75rem;
+    background-color: rgb(47, 45, 56);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.menu-panel[hidden] {
+    display: none;
+}
+
+.menu-panel a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu-panel a:hover {
+    background-color: rgba(174, 0, 255, 0.35);
+}
+
+.blur {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    height: 100%;
+    width: 100%;
+}
+
+.bar .brand {
+    color: inherit;
+    text-decoration: none;
+}
+
+.baner {
+    min-height: clamp(6rem, 20vh, 12rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(47, 45, 56);
+    color: white;
+}
+
+.contenedor {
+    width: min(90%, 72rem);
+    min-height: clamp(18rem, 65vh, 52rem);
+    margin: 0 auto 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 5px solid rgb(255, 238, 0);
+    border-radius: 12px;
+    background-color: rgb(47, 45, 56);
+    color: white;
+    align-items: center;
+    justify-content: center;
+}

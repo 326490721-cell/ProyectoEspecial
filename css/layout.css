@@ -12,6 +12,7 @@
     color: white;
     font-size: clamp(1.25rem, 2vw, 2rem);
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 /* Botón que despliega el menú en pantallas pequeñas. */
@@ -167,6 +168,7 @@
 /* Contenedor a todo lo ancho para el banner. */
 .baner {
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 /* Hace que el banner ocupe el ancho disponible sin deformarse. */
@@ -174,6 +176,8 @@
     display: block;
     width: 100%;
     height: auto;
+    border: 5px solid rgb(255, 238, 0);
+    border-radius: 12px;
 }
 
 /* Caja de contenido reutilizable con borde y fondo del sitio. */

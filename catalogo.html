@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Metadatos de visualización, título y estilos de la página. -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FrikSix Arcade - Catalog</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/Login.css">
-    </head>
-    <body>
-        <!-- Encabezado compartido con navegación y logotipos. -->
-        <header class="bar">
+
+<head>
+  <!-- Metadatos de visualización, título y estilos de la página. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrikSix Arcade - Catalog</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/Login.css">
+</head>
+
+<body>
+  <!-- Encabezado compartido con navegación y logotipos. -->
+  <header class="bar">
     <!-- Botón accesible para abrir y cerrar el menú. -->
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
@@ -30,7 +32,15 @@
       <img src="assets/logos/Friksix Arcade.jpeg" alt="Logo FrikSix Arcade">
     </div>
   </header>
-        <!-- Controla el comportamiento interactivo del menú. -->
-        <script src="scripts/Menu.js" defer></script>
-    </body>
+  <h1>Catalog of Games</h1>
+  section class="carrusel" aria-label="Game consoles" tabindex="0">
+  <!-- Cada tarjeta muestra una imagen y el nombre de una consola. -->
+  <figure class="console-card">
+    <img src="assets/consolas/MaquinitaMultijuegos.jpg" alt="Multigame arcade machine">
+    <figcaption>Multigame</figcaption>
+  </figure>
+  <!-- Controla el comportamiento interactivo del menú. -->
+  <script src="scripts/Menu.js" defer></script>
+</body>
+
 </html>

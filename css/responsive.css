@@ -81,10 +81,11 @@
         flex-basis: min(80vw, 20rem);
         padding: 0.75rem;
         border-width: 3px;
+        min-height: 14rem;
     }
 
     /* Acorta las imágenes del carrusel en dispositivos pequeños. */
     .carrusel img {
-        height: 12rem;
+        height: 9rem;
     }
 }

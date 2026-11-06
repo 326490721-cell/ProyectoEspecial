@@ -69,20 +69,48 @@
 /* Permite recorrer horizontalmente la lista de consolas. */
 .carrusel {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     width: min(90%, 72rem);
     margin: 0 auto 2rem;
-    padding: 1rem;
+    padding: 1rem 0.75rem 1.25rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 0.75rem;
     overscroll-behavior-x: contain;
+    scrollbar-color: rgb(255, 238, 0) rgb(47, 45, 56);
+    scrollbar-width: thin;
+}
+
+.carrusel:focus-visible {
+    outline: 3px solid rgb(255, 238, 0);
+    outline-offset: 4px;
+}
+
+.carrusel::-webkit-scrollbar {
+    height: 0.65rem;
+}
+
+.carrusel::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background-color: rgb(47, 45, 56);
+}
+
+.carrusel::-webkit-scrollbar-thumb {
+    border: 2px solid rgb(47, 45, 56);
+    border-radius: 999px;
+    background-color: rgb(174, 0, 255);
 }
 
 /* Tarjeta individual de consola con ajuste al desplazamiento. */
 .console-card {
-    flex: 0 0 clamp(16rem, 35vw, 24rem);
+    display: flex;
+    flex: 0 0 clamp(16rem, 30vw, 21rem);
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 15rem;
     margin: 0;
-    padding: 1rem;
+    padding: 1.25rem;
     border: 5px solid rgb(255, 238, 0);
     border-radius: 12px;
     background-color: rgb(47, 45, 56);
@@ -94,13 +122,14 @@
 .carrusel img {
     display: block;
     width: 100%;
-    height: 5rem;
+    height: 10rem;
     object-fit: contain;
 }
 
 /* Centra el nombre de cada consola debajo de su imagen. */
 .console-card figcaption {
     margin-top: 0.75rem;
+    line-height: 1.6;
     text-align: center;
 }
 
@@ -131,7 +160,7 @@ h1 {
 .console-card:hover {
     position: relative;
     z-index: 1;
-    transform: scale(1.04);
+    transform: translateY(-4px);
     background-color: rgba(174, 0, 255, 0.3);
     color: white;
     text-decoration: underline;
@@ -142,6 +171,10 @@ h1 {
 
 /* Desactiva las transiciones si el usuario prefiere menos movimiento. */
 @media (prefers-reduced-motion: reduce) {
+    .carrusel {
+        scroll-behavior: auto;
+    }
+
     .console-card {
         transition: none;
     }

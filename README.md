@@ -20,3 +20,9 @@
 10. Computación: Diseñar una página web con catálogo, precios, ubicación y contacto.
 
 11. Entrega final: Integrar las investigaciones, revisar el proyecto y preparar la presentación
+
+## Base de datos
+
+La infraestructura SQL para proveedores y futuras tablas está en
+[database/README.md](database/README.md). El esquema inicial se encuentra en
+[database/schema.sql](database/schema.sql).

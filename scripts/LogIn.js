@@ -1,11 +1,11 @@
-// Valida el formato del usuario y la contraseña antes de enviar al PHP.
+// Valida el usuario antes de enviar al PHP; el navegador valida la longitud de la contraseña.
 const loginForm = document.querySelector(".login-form");
+const loginMessage = document.querySelector("#login-message");
 
 if (loginForm instanceof HTMLFormElement) {
     const usernameInput = loginForm.querySelector("#username");
     const passwordInput = loginForm.querySelector("#password");
     const usernamePattern = /^[A-Za-z0-9]{3,20}$/;
-    const passwordPattern = /^[0-9]{4}-[0-9]{4}$/;
 
     if (usernameInput instanceof HTMLInputElement
         && passwordInput instanceof HTMLInputElement) {
@@ -14,11 +14,6 @@ if (loginForm instanceof HTMLFormElement) {
                 usernamePattern.test(usernameInput.value)
                     ? ""
                     : "El usuario debe tener de 3 a 20 letras o números."
-            );
-            passwordInput.setCustomValidity(
-                passwordPattern.test(passwordInput.value)
-                    ? ""
-                    : "La contraseña debe tener el formato 1234-5678."
             );
         };
 
@@ -31,5 +26,22 @@ if (loginForm instanceof HTMLFormElement) {
                 loginForm.reportValidity();
             }
         });
+    }
+}
+
+if (loginMessage instanceof HTMLElement) {
+    const query = new URLSearchParams(window.location.search);
+    const messages = {
+        credentials: "The username or password is incorrect.",
+        server: "The login service is unavailable. Please try again later."
+    };
+    const error = query.get("error");
+
+    if (error && messages[error]) {
+        loginMessage.textContent = messages[error];
+        loginMessage.hidden = false;
+    } else if (query.has("logout")) {
+        loginMessage.textContent = "You have been logged out.";
+        loginMessage.hidden = false;
     }
 }

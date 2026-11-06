@@ -14,6 +14,15 @@
     text-align: center;
 }
 
+/* Centra el título de la consola en el catálogo. */
+.console-title {
+    text-align: center;
+}
+
+.catalog-subtitle {
+    text-align: center;
+}
+
 /* Da espacio entre las filas de la tabla informativa. */
 .contenedor table {
     width: 100%;

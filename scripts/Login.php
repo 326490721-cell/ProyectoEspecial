@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 startAppSession();
+unset($_SESSION['user_id'], $_SESSION['csrf_token']);
 
 $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';

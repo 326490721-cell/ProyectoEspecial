@@ -1,4 +1,4 @@
-// Valida el usuario antes de enviar al PHP; el navegador valida la longitud de la contraseña.
+// Valida las credenciales antes de enviarlas al servidor.
 const loginForm = document.querySelector(".login-form");
 const loginMessage = document.querySelector("#login-message");
 
@@ -39,9 +39,9 @@ if (loginForm instanceof HTMLFormElement) {
 if (loginMessage instanceof HTMLElement) {
     const query = new URLSearchParams(window.location.search);
     const messages = {
-        credentials: "The username or password is incorrect.",
-        server: "The login service is unavailable. Please try again later.",
-        throttled: "Too many failed attempts. Please wait 15 minutes before trying again."
+        credentials: "El usuario o la contraseña son incorrectos.",
+        server: "El servicio de acceso no está disponible. Inténtalo más tarde.",
+        throttled: "Hubo demasiados intentos fallidos. Espera 15 minutos antes de volver a intentarlo."
     };
     const error = query.get("error");
 
@@ -49,7 +49,7 @@ if (loginMessage instanceof HTMLElement) {
         loginMessage.textContent = messages[error];
         loginMessage.hidden = false;
     } else if (query.has("logout")) {
-        loginMessage.textContent = "You have been logged out.";
+        loginMessage.textContent = "Tu sesión se cerró correctamente.";
         loginMessage.hidden = false;
     }
 }

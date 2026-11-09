@@ -64,6 +64,7 @@ try {
     }
 
     $canManageSuppliers = false;
+    $supplierCount = 0;
     if ($user['codigo'] === 'accountant') {
         $supplierPermission = $database->prepare(
             "SELECT COUNT(*)
@@ -75,6 +76,12 @@ try {
         $supplierPermission->execute();
         $canManageSuppliers =
             (int) $supplierPermission->get_result()->fetch_row()[0] > 0;
+
+        if ($canManageSuppliers) {
+            $supplierCount = (int) $database
+                ->query('SELECT COUNT(*) FROM proveedores WHERE activo = 1')
+                ->fetch_row()[0];
+        }
     }
 } catch (Throwable $error) {
     error_log('FrikSix dashboard failed: ' . $error->getMessage());
@@ -83,39 +90,55 @@ try {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FrikSix Arcade - Account</title>
+  <title>Panel de cuenta - FrikSix Arcade</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
   <header class="bar">
-    <a class="brand" href="../index.html">FrikSix Arcade</a>
+    <a class="brand" href="../index.html">FrikSix Arcade - Mi cuenta</a>
   </header>
-  <main class="contenedor">
-    <h1>Welcome, <?= escapeHtml($user['nombre_usuario']) ?></h1>
-    <h2>Profile: <?= escapeHtml($user['nombre']) ?></h2>
-    <p>You are signed in. Your account has access according to its assigned profile.</p>
-    <p>The dedicated developer and accounting pages have not been added yet.</p>
-    <p><a class="button_text" href="../index.html">Home</a></p>
-    <p><a class="button_text" href="../catalogo.html">Game catalog</a></p>
-    <!-- El token evita que otro sitio fuerce el cierre de sesión del usuario. -->
-    <p><?= escapeHtml(match ($user['codigo']) {
-        'developer' => 'Contenido para el desarrollador',
-        'accountant' => 'Contenido para el contador',
-        'teacher' => 'Contenido para el maestro',
-        default => 'Perfil no reconocido'
-    }) ?></p>
-    <?php if ($canManageSuppliers): ?>
-      <p><a class="button_text" href="proveedores.php">Registrar empresa proveedora</a></p>
-    <?php endif; ?>
-    <form action="logout.php" method="post">
-      <input type="hidden" name="csrf_token" value="<?= escapeHtml($_SESSION['csrf_token']) ?>">
-      <button class="login-submit" type="submit">Log Out</button>
-    </form>
+  <main class="contenedor account-dashboard">
+    <h1>Hola, <?= escapeHtml($user['nombre_usuario']) ?></h1>
+    <section class="account-summary" aria-labelledby="account-profile">
+      <h2 id="account-profile">Tu perfil: <?= escapeHtml($user['nombre']) ?></h2>
+      <p><?= escapeHtml(match ($user['codigo']) {
+          'developer' => 'Tu cuenta tiene acceso de desarrollador. Las herramientas de administración aún no están disponibles.',
+          'accountant' => $canManageSuppliers
+              ? 'Desde este panel puedes gestionar las empresas proveedoras.'
+              : 'Tu perfil no tiene habilitada la gestión de proveedores. Contacta al administrador.',
+          'teacher' => 'Tu perfil tiene acceso general a las páginas de FrikSix Arcade.',
+          default => 'Tu perfil no tiene herramientas disponibles.'
+      }) ?></p>
+    </section>
 
+    <section aria-labelledby="account-actions">
+      <h2 id="account-actions">Accesos rápidos</h2>
+      <nav class="dashboard-links" aria-label="Accesos rápidos">
+        <a class="dashboard-action" href="../index.html">Inicio</a>
+        <a class="dashboard-action" href="../catalogo.html">Ver catálogo</a>
+        <?php if ($canManageSuppliers): ?>
+          <a class="dashboard-action" href="proveedores.php">Registrar proveedor</a>
+        <?php endif; ?>
+      </nav>
+    </section>
+
+    <?php if ($canManageSuppliers): ?>
+      <section class="supplier-summary" aria-labelledby="supplier-count">
+        <h2 id="supplier-count">Proveedores activos</h2>
+        <p><?= $supplierCount ?></p>
+        <a href="proveedores.php">Registrar una empresa proveedora</a>
+      </section>
+    <?php endif; ?>
+
+    <form class="dashboard-logout" action="logout.php" method="post">
+      <input type="hidden" name="csrf_token" value="<?= escapeHtml($_SESSION['csrf_token']) ?>">
+      <button class="dashboard-action dashboard-action--logout" type="submit">Cerrar sesión</button>
+    </form>
   </main>
 </body>
 </html>

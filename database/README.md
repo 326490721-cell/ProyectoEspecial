@@ -63,7 +63,9 @@ misma que escribiste al crear la cuenta.
 
 Al autenticarte, el servidor valida la contraseña con `password_verify()`,
 guarda la sesión y verifica el permiso del perfil antes de mostrar
-`scripts/dashboard.php`. Usa el botón **Log Out** para cerrar la sesión.
+`scripts/dashboard.php`. El panel ofrece accesos al inicio y al catálogo; el
+perfil Contador también puede registrar proveedores si tiene ese permiso. Usa
+**Cerrar sesión** para salir.
 Una contraseña debe tener al menos 12 caracteres y como máximo 72 bytes. El
 inicio de sesión permite hasta 10 intentos fallidos por dirección IP en 15
 minutos. Para una base existente, aplica una sola vez

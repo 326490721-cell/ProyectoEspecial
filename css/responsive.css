@@ -81,6 +81,10 @@
         flex-basis: min(80vw, 20rem);
         padding: 0.75rem;
         border-width: 3px;
+    }
+
+    .console-link {
+        flex-basis: min(80vw, 20rem);
         min-height: 14rem;
     }
 

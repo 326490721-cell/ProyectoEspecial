@@ -4,6 +4,7 @@
 <head>
   <!-- Configuración del documento y hoja de estilos compartida. -->
   <meta charset="UTF-8">
+  <lenguage>en</language>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FrikSix Arcade</title>
   <link rel="stylesheet" href="style.css">
@@ -34,6 +35,12 @@
   <!-- Imagen panorámica de presentación. -->
   <div class="baner">
     <img src="assets/logos/Baner.jpeg" alt="Banner image">
+  </div>
+  <!-- Nombres de profesores-->
+  <div class="profesores">
+    <h2>Our Instructors</h2>
+    <p>John Doe - Lead Instructor</p>
+    <p>Jane Smith - Assistant Instructor</p>
   </div>
   <!-- Misión, visión y valores del establecimiento. -->
   <div class="contenedor">
@@ -72,42 +79,60 @@
   <h1>Our GameStations</h1>
   <section class="carrusel" aria-label="Game consoles" tabindex="0">
     <!-- Cada tarjeta muestra una imagen y el nombre de una consola. -->
-    <figure class="console-card">
-      <img src="assets/consolas/MaquinitaMultijuegos.jpg" alt="Multigame arcade machine">
-      <figcaption>Multigame Arcade</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/sega.png" alt="Sega Dreamcast console">
-      <figcaption>Sega Saturn</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/PlayStation4.jpg" alt="PlayStation 4 console">
-      <figcaption>PlayStation 4</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/PlayStation2.jpg" alt="PlayStation 2 console">
-      <figcaption>PlayStation 2</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/NintendoSwitch2.jpg" alt="Nintendo Switch 2 console">
-      <figcaption>Nintendo Switch 2</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/NintentoNES.png" alt="Nintendo Entertainment System console">
-      <figcaption>Nintendo Entertainment System (NES)</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/SuperNES.png" alt="Super Nintendo Entertainment System console">
-      <figcaption>Super Nintendo (SNES)</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/Xbox360.jpg" alt="Xbox 360 console">
-      <figcaption>Xbox 360</figcaption>
-    </figure>
-    <figure class="console-card">
-      <img src="assets/consolas/WiiU.jpg" alt="Wii U console">
-      <figcaption>Wii U</figcaption>
-    </figure>
+    <a class="console-link" href="catalogo.html#multigame-title" aria-label="Ver juegos de Multigame Arcade">
+      <figure class="console-card">
+        <img src="assets/consolas/MaquinitaMultijuegos.jpg" alt="Multigame arcade machine">
+        <figcaption>Multigame Arcade</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#sega-title" aria-label="Ver juegos de Sega">
+      <figure class="console-card">
+        <img src="assets/consolas/Sega.png" alt="Sega console">
+        <figcaption>Sega Saturn</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#ps4-title" aria-label="Ver juegos de PlayStation 4">
+      <figure class="console-card">
+        <img src="assets/consolas/PlayStation4.jpg" alt="PlayStation 4 console">
+        <figcaption>PlayStation 4</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#ps2-title" aria-label="Ver juegos de PlayStation 2">
+      <figure class="console-card">
+        <img src="assets/consolas/PlayStation2.jpg" alt="PlayStation 2 console">
+        <figcaption>PlayStation 2</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#switch2-title" aria-label="Ver juegos de Nintendo Switch 2">
+      <figure class="console-card">
+        <img src="assets/consolas/NintendoSwitch2.jpg" alt="Nintendo Switch 2 console">
+        <figcaption>Nintendo Switch 2</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#nes-title" aria-label="Ver juegos de Nintendo Entertainment System">
+      <figure class="console-card">
+        <img src="assets/consolas/NintentoNES.png" alt="Nintendo Entertainment System console">
+        <figcaption>Nintendo Entertainment System (NES)</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#snes-title" aria-label="Ver juegos de Super Nintendo">
+      <figure class="console-card">
+        <img src="assets/consolas/SuperNES.png" alt="Super Nintendo Entertainment System console">
+        <figcaption>Super Nintendo (SNES)</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#xbox360-title" aria-label="Ver juegos de Xbox 360">
+      <figure class="console-card">
+        <img src="assets/consolas/Xbox360.jpg" alt="Xbox 360 console">
+        <figcaption>Xbox 360</figcaption>
+      </figure>
+    </a>
+    <a class="console-link" href="catalogo.html#wiiu-title" aria-label="Ver juegos de Wii U">
+      <figure class="console-card">
+        <img src="assets/consolas/WiiU.jpg" alt="Wii U console">
+        <figcaption>Wii U</figcaption>
+      </figure>
+    </a>
   </section>
   <!-- Script que activa el menú en esta página. -->
   <script src="scripts/Menu.js" defer></script>

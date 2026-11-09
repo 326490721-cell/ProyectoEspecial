@@ -60,6 +60,13 @@ En VS Code, ejecuta **Tasks: Run Task** > **FrikSix: iniciar sitio web**.
 Abre `http://127.0.0.1:8000/logIn.html` en el navegador e inicia sesión con una
 cuenta creada mediante la herramienta anterior. La contraseña debe ser la
 misma que escribiste al crear la cuenta.
+Los pasos para iniciar el servidor y probar accesos correctos e incorrectos
+están en [`iniciarServidor.txt`](../iniciarServidor.txt).
+
+No abras `logIn.html` como archivo (`file://`) ni uses Live Server (por ejemplo,
+el puerto `5500`): esos métodos no ejecutan PHP y pueden mostrar el código
+fuente de los procesadores. Usa únicamente la dirección local del servidor PHP
+que aparece arriba; no escribas credenciales si la barra muestra otra dirección.
 
 Al autenticarte, el servidor valida la contraseña con `password_verify()`,
 guarda la sesión y verifica el permiso del perfil antes de mostrar

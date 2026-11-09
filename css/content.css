@@ -14,13 +14,41 @@
     text-align: center;
 }
 
-/* Centra el título de la consola en el catálogo. */
+/* Mantiene los títulos del catálogo legibles y evita cortes desordenados. */
+.catalog-page > h1 {
+    width: min(90%, 72rem);
+    margin: 1.5rem auto 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: clamp(1rem, 2.4vw, 1.6rem);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
 .console-title {
+    width: min(90%, 72rem);
+    margin: 2rem auto 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: clamp(0.85rem, 2vw, 1.3rem);
+    line-height: 1.5;
     text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+.catalog-page > section {
+    margin-bottom: 2.5rem;
 }
 
 .catalog-subtitle {
+    width: min(90%, 44rem);
+    margin: 0 auto 1rem;
+    padding-inline: 0.5rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+    line-height: 1.6;
     text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
 }
 
 /* Da espacio entre las filas de la tabla informativa. */
@@ -96,6 +124,20 @@
     outline-offset: 4px;
 }
 
+.console-link {
+    display: block;
+    flex: 0 0 clamp(16rem, 30vw, 21rem);
+    color: inherit;
+    text-decoration: none;
+    scroll-snap-align: start;
+}
+
+.console-link:focus-visible {
+    border-radius: 12px;
+    outline: 3px solid rgb(255, 238, 0);
+    outline-offset: 4px;
+}
+
 .carrusel::-webkit-scrollbar {
     height: 0.65rem;
 }
@@ -125,6 +167,10 @@
     background-color: rgb(47, 45, 56);
     scroll-snap-align: start;
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.console-title {
+    scroll-margin-top: 1rem;
 }
 
 /* Mantiene las imágenes de consolas dentro de cada tarjeta. */

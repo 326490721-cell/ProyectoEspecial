@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../scripts/auth.php';
 
 // Este alta se limita a la consola local para no exponer una página de registro pública.
 if (PHP_SAPI !== 'cli') {
@@ -99,8 +100,10 @@ try {
     }
 
     $password = promptPassword();
-    if (strlen($password) < 12 || strlen($password) > 72) {
-        throw new RuntimeException('La contraseña debe tener entre 12 y 72 bytes.');
+    if (!isAppPasswordLengthValid($password)) {
+        throw new RuntimeException(
+            'La contraseña debe tener al menos 12 caracteres y un máximo de 72 bytes.'
+        );
     }
 
     // Guarda un hash unidireccional y usa parámetros para insertar los datos de forma segura.

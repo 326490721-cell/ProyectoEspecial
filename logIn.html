@@ -44,8 +44,9 @@
                pattern="[A-Za-z0-9]{3,20}" title="Usa de 3 a 20 letras o números."
                autocomplete="username">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required minlength="12"
-               placeholder="Enter your password" title="Use at least 12 characters."
+        <input type="password" id="password" name="password" required
+               placeholder="Enter your password"
+               title="Use at least 12 characters (maximum 72 bytes)."
                autocomplete="current-password">
         <button class="login-submit" type="submit">Log In</button>
       </form>

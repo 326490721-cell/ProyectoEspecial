@@ -18,14 +18,32 @@ $password = $_POST['password'] ?? '';
 if (!is_string($username)
     || !preg_match('/^[A-Za-z0-9]{3,20}$/', $username)
     || !is_string($password)
-    || strlen($password) < 12
-    || strlen($password) > 72) {
+    || !isAppPasswordLengthValid($password)) {
     header('Location: ../logIn.html?error=credentials', true, 303);
     exit;
 }
 
 try {
+    $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+    if (!is_string($clientIp) || filter_var($clientIp, FILTER_VALIDATE_IP) === false) {
+        throw new RuntimeException('La dirección IP del cliente no es válida.');
+    }
+
     $database = appDatabase();
+    // Limita a 10 fallos por dirección IP en una ventana móvil de 15 minutos.
+    $attemptCount = $database->prepare(
+        'SELECT COUNT(*)
+         FROM login_attempts
+         WHERE ip_address = ?
+           AND attempted_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 MINUTE)'
+    );
+    $attemptCount->bind_param('s', $clientIp);
+    $attemptCount->execute();
+    if ((int) $attemptCount->get_result()->fetch_row()[0] >= 10) {
+        header('Location: ../logIn.html?error=throttled', true, 303);
+        exit;
+    }
+
     // La consulta preparada busca una cuenta activa y su perfil.
     $statement = $database->prepare(
         'SELECT u.id, u.hash_contrasena, p.codigo, p.nombre
@@ -40,6 +58,18 @@ try {
 
     // Compara la contraseña escrita con el hash guardado sin revelar qué dato falló.
     if (!$user || !password_verify($password, $user['hash_contrasena'])) {
+        $cleanup = $database->prepare(
+            'DELETE FROM login_attempts
+             WHERE attempted_at < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY)'
+        );
+        $cleanup->execute();
+
+        $recordAttempt = $database->prepare(
+            'INSERT INTO login_attempts (ip_address) VALUES (?)'
+        );
+        $recordAttempt->bind_param('s', $clientIp);
+        $recordAttempt->execute();
+
         header('Location: ../logIn.html?error=credentials', true, 303);
         exit;
     }

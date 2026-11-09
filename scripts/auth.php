@@ -39,6 +39,15 @@ function appDatabase(): mysqli
     return $database;
 }
 
+function isAppPasswordLengthValid(string $password): bool
+{
+    $characterCount = preg_match_all('/./us', $password);
+
+    return $characterCount !== false
+        && $characterCount >= 12
+        && strlen($password) <= 72;
+}
+
 function escapeHtml(string $value): string
 {
     // Escapa datos antes de insertarlos en el HTML.

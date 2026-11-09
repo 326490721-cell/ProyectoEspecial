@@ -45,8 +45,8 @@ También puedes ejecutarlo desde PowerShell:
 
 La herramienta pide nombre, correo opcional, perfil y contraseña. La contraseña
 se introduce de forma oculta y se guarda como hash. El script solo funciona
-desde la consola local, no como una página pública. Acepta contraseñas de 12 a
-72 bytes.
+desde la consola local, no como una página pública. Acepta contraseñas de al
+menos 12 caracteres y hasta 72 bytes.
 
 Si tu MariaDB tiene una contraseña configurada para la cuenta usada, define
 `FRIKSIX_DB_PASSWORD` en PowerShell antes de ejecutar el comando. También puedes
@@ -64,6 +64,11 @@ misma que escribiste al crear la cuenta.
 Al autenticarte, el servidor valida la contraseña con `password_verify()`,
 guarda la sesión y verifica el permiso del perfil antes de mostrar
 `scripts/dashboard.php`. Usa el botón **Log Out** para cerrar la sesión.
+Una contraseña debe tener al menos 12 caracteres y como máximo 72 bytes. El
+inicio de sesión permite hasta 10 intentos fallidos por dirección IP en 15
+minutos. Para una base existente, aplica una sola vez
+`migrations/003_login_attempts.sql`; las instalaciones nuevas ya incluyen esa
+tabla en `schema.sql`.
 Las páginas exclusivas del desarrollador y del contador todavía no existen; el
 panel informa qué perfil inició sesión mientras se preparan esas páginas.
 

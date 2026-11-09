@@ -15,6 +15,13 @@ if (loginForm instanceof HTMLFormElement) {
                     ? ""
                     : "El usuario debe tener de 3 a 20 letras o números."
             );
+            const passwordCharacterCount = Array.from(passwordInput.value).length;
+            const passwordByteCount = new TextEncoder().encode(passwordInput.value).length;
+            passwordInput.setCustomValidity(
+                passwordCharacterCount >= 12 && passwordByteCount <= 72
+                    ? ""
+                    : "La contraseña debe tener al menos 12 caracteres y un máximo de 72 bytes."
+            );
         };
 
         loginForm.addEventListener("input", updateValidation);
@@ -33,7 +40,8 @@ if (loginMessage instanceof HTMLElement) {
     const query = new URLSearchParams(window.location.search);
     const messages = {
         credentials: "The username or password is incorrect.",
-        server: "The login service is unavailable. Please try again later."
+        server: "The login service is unavailable. Please try again later.",
+        throttled: "Too many failed attempts. Please wait 15 minutes before trying again."
     };
     const error = query.get("error");
 

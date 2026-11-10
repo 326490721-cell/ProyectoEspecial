@@ -1,0 +1,236 @@
+USAR MYSQL DESDE LA TERMINAL DE VS CODE
+========================================
+
+Este archivo explica cómo conectarse al MySQL/MariaDB local de XAMPP desde
+PowerShell. No es necesario usar SQLTools.
+
+REQUISITOS
+----------
+
+1. Tener XAMPP instalado en C:\xampp.
+   El cliente de MySQL debe existir en:
+   C:\xampp\mysql\bin\mysql.exe
+
+2. Abrir el Panel de control de XAMPP e iniciar MySQL.
+   Déjalo iniciado mientras uses la base de datos.
+
+3. En VS Code, abrir Terminal > New Terminal.
+   La terminal debe ser PowerShell. El comando de abajo usa la ruta de XAMPP
+   instalada en C:\xampp.
+
+4. Estos datos corresponden a la configuración local comprobada en este
+   equipo:
+   - Host: 127.0.0.1
+   - Puerto: 3306
+   - Usuario: root
+   - Contraseña: vacía
+
+   Si cambiaste la contraseña de MySQL, consulta la sección "Si solicita
+   contraseña". No uses la contraseña de Windows.
+
+CONECTARSE
+----------
+
+Copia este comando en la terminal integrada de VS Code y pulsa Enter:
+
+& 'C:\xampp\mysql\bin\mysql.exe' --protocol=TCP --host=127.0.0.1 --port=3306 --user=root
+
+Si la conexión funciona, aparecerá un indicador parecido a:
+
+MariaDB [(none)]>
+
+Ahora puedes escribir instrucciones SQL. Por ejemplo, para crear y seleccionar
+una base de datos nueva:
+
+CREATE DATABASE IF NOT EXISTS empleados_db;
+USE empleados_db;
+
+Pulsa Enter después de cada instrucción. Para desconectarte, escribe:
+
+exit
+
+y pulsa Enter.
+
+SI SOLICITA CONTRASEÑA
+----------------------
+
+El MySQL local de este equipo fue probado y acepta el usuario root sin
+contraseña. Si aparece una solicitud:
+
+- No escribas la contraseña de Windows.
+- Si configuraste una contraseña para MySQL, escribe esa contraseña.
+- Si no configuraste ninguna y no conecta, revisa que XAMPP MySQL esté
+  iniciado y que la conexión use el puerto 3306.
+- Nunca incluyas una contraseña directamente en un comando o en este archivo.
+
+ERRORES FRECUENTES
+------------------
+
+"No se encuentra el archivo":
+  Comprueba que XAMPP esté instalado en C:\xampp y que exista
+  C:\xampp\mysql\bin\mysql.exe.
+
+"Can't connect" o error de conexión:
+  Inicia MySQL desde el Panel de control de XAMPP. Comprueba que el puerto sea
+  3306 y vuelve a intentar.
+
+"Access denied":
+  El usuario o la contraseña no coinciden con la configuración de MySQL.
+  Comprueba los datos locales de XAMPP; no cambies la contraseña de root solo
+  para evitar el mensaje.
+
+NOTA
+----
+
+El comando abre una sesión interactiva de MySQL en la terminal. No borra ni
+crea ninguna base por sí solo; solo permite ejecutar las instrucciones SQL que
+escribas después de conectarte.
+INSERT INTO empleados
+  (nombre, nombre_usuario, puesto, hash_contrasena)
+VALUES
+  ('Ana López', 'alopez', 'Recepción', 'PEGA_AQUI_EL_HASH');
+COMANDOS SQL BASICOS: BASES Y TABLAS
+------------------------------------
+
+En el indicador MariaDB [(none)]> escribe una instrucción SQL y pulsa Enter.
+El punto y coma (;) indica que la instrucción terminó. Puedes escribirla en
+varias líneas; MariaDB esperará hasta que escribas el punto y coma.
+
+Crear una base de datos si todavía no existe:
+
+CREATE DATABASE IF NOT EXISTS empleados_db
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+Seleccionar la base para las siguientes instrucciones:
+
+USE empleados_db;
+
+Ver las bases disponibles y confirmar cuál está seleccionada:
+
+SHOW DATABASES;
+SELECT DATABASE();
+
+Crear una tabla de empleados:
+
+CREATE TABLE IF NOT EXISTS empleados (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(100) NOT NULL,
+  nombre_usuario VARCHAR(20) NOT NULL,
+  puesto VARCHAR(100) NOT NULL,
+  hash_contrasena VARCHAR(255) NOT NULL,
+  activo TINYINT(1) NOT NULL DEFAULT 1,
+  creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_empleados_nombre_usuario (nombre_usuario)
+) ENGINE=InnoDB
+  DEFAULT CHARACTER SET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+Qué significa cada parte:
+- CREATE TABLE: crea una tabla.
+- IF NOT EXISTS: evita el error si la tabla ya existe; no reemplaza la tabla.
+- id: número identificador de cada empleado.
+- AUTO_INCREMENT: MySQL genera automáticamente el siguiente id.
+- NOT NULL: el campo es obligatorio.
+- VARCHAR(100): texto de hasta 100 caracteres.
+- hash_contrasena: guarda un hash, nunca la contraseña original.
+- DEFAULT 1: si no se indica activo, comienza activo.
+- TIMESTAMP ... CURRENT_TIMESTAMP: guarda automáticamente la fecha y hora.
+- PRIMARY KEY: marca el identificador principal de cada fila.
+- UNIQUE KEY: impide repetir el nombre de usuario.
+- InnoDB: motor de tabla que soporta transacciones y relaciones.
+- utf8mb4: permite guardar acentos y caracteres Unicode.
+
+Ver las tablas de la base seleccionada:
+
+SHOW TABLES;
+
+Ver las columnas, tipos y reglas de una tabla:
+
+DESCRIBE empleados;
+
+CONFIGURAR UNA TABLA EXISTENTE
+------------------------------
+
+Agregar una columna de correo:
+
+ALTER TABLE empleados
+  ADD COLUMN correo VARCHAR(254) NULL;
+
+ALTER TABLE modifica una tabla existente. ADD COLUMN agrega una columna.
+NULL significa que el dato puede quedar sin especificar.
+
+Cambiar un puesto no requiere cambiar la estructura: se cambia el dato con
+UPDATE, como se muestra más adelante.
+
+AGREGAR DATOS
+-------------
+
+La columna hash_contrasena es obligatoria. Para aprender, genera un hash para
+una contraseña temporal de prueba en otra terminal de PowerShell:
+
+& 'C:\xampp\php\php.exe' -r "echo password_hash('ClaveTemporal123!', PASSWORD_DEFAULT), PHP_EOL;"
+
+No uses una contraseña real en ese comando ni guardes contraseñas en archivos.
+Copia el hash resultante y úsalo en este ejemplo:
+
+INSERT INTO empleados
+  (nombre, nombre_usuario, puesto, hash_contrasena)
+VALUES
+  ('Ana López', 'alopez', 'Recepción', 'PEGA_AQUI_EL_HASH');
+
+INSERT INTO indica que se agregará una fila. La lista entre paréntesis indica
+qué columnas se llenan; VALUES da los valores en el mismo orden. Las comillas
+simples delimitan valores de texto. id, activo y creado_en se generan
+automáticamente.
+
+Consultar los empleados sin mostrar hashes:
+
+SELECT id, nombre, nombre_usuario, puesto, activo, creado_en
+FROM empleados;
+
+SELECT consulta datos. FROM indica la tabla. No incluyas hash_contrasena en
+consultas destinadas a mostrar información de empleados.
+
+EDITAR Y DAR DE BAJA
+--------------------
+
+Antes de cambiar un registro, comprueba el identificador:
+
+SELECT id, nombre, puesto
+FROM empleados
+WHERE id = 1;
+
+Cambiar el puesto de ese empleado:
+
+UPDATE empleados
+SET puesto = 'Supervisora'
+WHERE id = 1;
+
+Darlo de baja sin borrar su historial:
+
+UPDATE empleados
+SET activo = 0
+WHERE id = 1;
+
+UPDATE modifica filas. SET indica el nuevo valor. WHERE limita qué filas se
+modifican. Comprueba el WHERE con SELECT primero: si omites WHERE, el cambio
+puede aplicarse a todas las filas.
+
+ELIMINAR Y SALIR
+----------------
+
+DELETE borra filas de forma permanente. Antes de usarlo, comprueba con SELECT
+que el WHERE identifica solo la fila que deseas eliminar:
+
+DELETE FROM empleados
+WHERE id = 1;
+
+No ejecutes DELETE sin WHERE: borraría todos los empleados. No ejecutes DROP
+TABLE ni DROP DATABASE salvo que de verdad quieras eliminar permanentemente la
+tabla o base completa.
+
+Para terminar la sesión interactiva:
+
+exit

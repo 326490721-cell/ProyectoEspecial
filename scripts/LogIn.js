@@ -1,4 +1,4 @@
-// Validate the credentials before sending them to the server.
+// Valida las credenciales antes de enviarlas al servidor.
 const loginForm = document.querySelector(".login-form");
 const loginMessage = document.querySelector("#login-message");
 
@@ -13,14 +13,14 @@ if (loginForm instanceof HTMLFormElement) {
             usernameInput.setCustomValidity(
                 usernamePattern.test(usernameInput.value)
                     ? ""
-                    : "The username must contain 3 to 20 letters or numbers."
+                    : "El usuario debe tener de 3 a 20 letras o números."
             );
             const passwordCharacterCount = Array.from(passwordInput.value).length;
             const passwordByteCount = new TextEncoder().encode(passwordInput.value).length;
             passwordInput.setCustomValidity(
                 passwordCharacterCount >= 12 && passwordByteCount <= 72
                     ? ""
-                    : "The password must contain at least 12 characters and no more than 72 bytes."
+                    : "La contraseña debe tener al menos 12 caracteres y un máximo de 72 bytes."
             );
         };
 
@@ -39,9 +39,9 @@ if (loginForm instanceof HTMLFormElement) {
 if (loginMessage instanceof HTMLElement) {
     const query = new URLSearchParams(window.location.search);
     const messages = {
-        credentials: "The username or password is incorrect.",
-        server: "The login service is unavailable. Please try again later.",
-        throttled: "There have been too many failed attempts. Wait 15 minutes before trying again."
+        credentials: "El usuario o la contraseña son incorrectos.",
+        server: "El servicio de acceso no está disponible. Inténtalo más tarde.",
+        throttled: "Hubo demasiados intentos fallidos. Espera 15 minutos antes de volver a intentarlo."
     };
     const error = query.get("error");
 
@@ -49,7 +49,7 @@ if (loginMessage instanceof HTMLElement) {
         loginMessage.textContent = messages[error];
         loginMessage.hidden = false;
     } else if (query.has("logout")) {
-        loginMessage.textContent = "You have been logged out successfully.";
+        loginMessage.textContent = "Tu sesión se cerró correctamente.";
         loginMessage.hidden = false;
     }
 }

@@ -12,10 +12,10 @@ if (proveedoresForm instanceof HTMLFormElement
         const validCharacters = /^[0-9+().\s-]+$/.test(telefonoField.value.trim());
 
         telefonoField.setCustomValidity(!hasPhone
-            ? "Enter a phone number."
+            ? "Completa el teléfono."
             : !validCharacters
-                ? "Use only numbers and separators in the phone number."
-                : validDigitCount ? "" : "Enter a phone number with 10 to 15 digits.");
+                ? "Usa solo números y separadores en el teléfono."
+                : validDigitCount ? "" : "Ingresa un teléfono con entre 10 y 15 dígitos.");
     };
 
     telefonoField.addEventListener("input", validatePhone);
@@ -28,7 +28,7 @@ if (proveedoresForm instanceof HTMLFormElement
             return;
         }
 
-        proveedoresMessage.textContent = "The information is valid. It has not been saved or submitted.";
+        proveedoresMessage.textContent = "Los datos son válidos. No se guardaron ni se enviaron.";
         proveedoresMessage.hidden = false;
     });
 

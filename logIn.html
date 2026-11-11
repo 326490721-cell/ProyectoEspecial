@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <!-- Document metadata, title, and shared and login stylesheets. -->
+        <!-- Metadatos del documento, título y hojas de estilos. -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FrikSix Arcade - Log In</title>
+        <title>FrikSix Arcade - Iniciar sesión</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/logIn.css">
     </head>
     <body class="login-page">
-        <!-- Shared navigation bar. -->
+        <!-- Barra de navegación compartida. -->
         <header class="bar">
-    <!-- Button to open and close the navigation menu. -->
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">
+    <!-- Botón para abrir y cerrar el menú de navegación. -->
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
     <a class="brand" href="index.html">FrikSix Arcade</a>
-    <!-- Navigation between the main site pages. -->
-    <nav class="menu-panel" id="main-menu" aria-label="Main menu" hidden>
-      <a href="index.html">Home</a>
-      <a href="catalogo.html">Catalog</a>
-      <a href="FormularioEmpresas.html">Suppliers</a>
-      <a href="logIn.html">Log In</a>
+    <!-- Navegación entre las páginas principales del sitio. -->
+    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="FormularioEmpresas.html">Proveedores</a>
+      <a href="logIn.html">Iniciar sesión</a>
     </nav>
-    <!-- Institutional and arcade logos. -->
+    <!-- Logotipos institucional y del arcade. -->
     <div class="image-frame">
-      <img src="assets/logos/ENP_UNAM.png" alt="ENP UNAM logo">
+      <img src="assets/logos/ENP_UNAM.png" alt="Escudos de la UNAM y la ENP">
     </div>
     <div class="image-frame image-frame--local">
-      <img src="assets/logos/Friksix Arcade.jpeg" alt="FrikSix Arcade logo">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
     </div>
   </header>
-        <!-- Enables menu interactions. -->
+        <!-- Activa las interacciones del menú. -->
         <script src="scripts/Menu.js" defer></script>
-  <!-- Card with the login image and form. -->
+  <!-- Tarjeta con la imagen y el formulario de acceso. -->
   <main class="contenedor login-card">
       <img class="nyan-cat" src="assets/NyanCat.gif" alt="Nyan Cat">
-    <h2>Log In to Your Account</h2>
+    <h2>Inicia sesión en tu cuenta</h2>
       <p class="login-message" id="login-message" role="alert" hidden></p>
-    <!-- Required username and password fields. -->
+    <!-- Campos obligatorios para el usuario y la contraseña. -->
     <form class="login-form" action="scripts/Login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required placeholder="Username123"
-               pattern="[A-Za-z0-9]{3,20}" title="Use 3 to 20 letters or numbers."
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required placeholder="Usuario123"
+               pattern="[A-Za-z0-9]{3,20}" title="Usa de 3 a 20 letras o números."
                autocomplete="username">
-        <label for="password">Password:</label>
+        <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required
-               placeholder="Enter your password"
-               title="Use at least 12 characters and a maximum of 72 bytes."
+               placeholder="Escribe tu contraseña"
+               title="Usa al menos 12 caracteres y un máximo de 72 bytes."
                autocomplete="current-password">
-        <button class="login-submit" type="submit">Log In</button>
+        <button class="login-submit" type="submit">Iniciar sesión</button>
       </form>
   </main>
-        <!-- Validates the username and password length before submitting to PHP. -->
+        <!-- Valida el usuario y la longitud de la contraseña antes de enviar al PHP. -->
         <script src="scripts/LogIn.js" defer></script>
         <script src="scripts/ButtonSound.js" defer></script>
     </body>

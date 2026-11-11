@@ -1,4 +1,4 @@
-// Carga el sonido junto al script para que también pueda empezar antes de navegar.
+// Load the sound relative to this script so it works from every page.
 const buttonSound = new Audio(new URL("../audio/Botones.mp3", document.currentScript.src));
 buttonSound.preload = "auto";
 
@@ -12,14 +12,14 @@ const playButtonSound = () => {
     });
 };
 
-// Inicia el sonido antes de que un enlace navegue a otra página.
+// Start the sound before a link navigates to another page.
 document.addEventListener("pointerdown", (event) => {
     if (event.target instanceof Element && event.target.closest("button, a[href]")) {
         playButtonSound();
     }
 }, true);
 
-// También reproduce el sonido al activar botones o enlaces con teclado.
+// Also play the sound when buttons or links are activated by keyboard.
 document.addEventListener("keydown", (event) => {
     if (event.repeat || !(event.target instanceof Element)) {
         return;

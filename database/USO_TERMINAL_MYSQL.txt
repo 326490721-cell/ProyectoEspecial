@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS empleados (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(100) NOT NULL,
   nombre_usuario VARCHAR(20) NOT NULL,
+  correo VARCHAR(254) NULL,
   puesto VARCHAR(100) NOT NULL,
   hash_contrasena VARCHAR(255) NOT NULL,
   activo TINYINT(1) NOT NULL DEFAULT 1,
@@ -134,6 +135,7 @@ Qué significa cada parte:
 - AUTO_INCREMENT: MySQL genera automáticamente el siguiente id.
 - NOT NULL: el campo es obligatorio.
 - VARCHAR(100): texto de hasta 100 caracteres.
+- correo VARCHAR(254) NULL: correo opcional; NULL indica que no se conoce o no se proporcionó.
 - hash_contrasena: guarda un hash, nunca la contraseña original.
 - DEFAULT 1: si no se indica activo, comienza activo.
 - TIMESTAMP ... CURRENT_TIMESTAMP: guarda automáticamente la fecha y hora.
@@ -153,7 +155,7 @@ DESCRIBE empleados;
 CONFIGURAR UNA TABLA EXISTENTE
 ------------------------------
 
-Agregar una columna de correo:
+Si la tabla ya existe y todavía no tiene una columna de correo, agrégala una vez:
 
 ALTER TABLE empleados
   ADD COLUMN correo VARCHAR(254) NULL;
@@ -185,13 +187,37 @@ qué columnas se llenan; VALUES da los valores en el mismo orden. Las comillas
 simples delimitan valores de texto. id, activo y creado_en se generan
 automáticamente.
 
-Consultar los empleados sin mostrar hashes:
+Consultar los empleados y sus correos sin mostrar hashes:
 
-SELECT id, nombre, nombre_usuario, puesto, activo, creado_en
+SELECT id, nombre, nombre_usuario, correo, puesto, activo, creado_en
 FROM empleados;
 
 SELECT consulta datos. FROM indica la tabla. No incluyas hash_contrasena en
 consultas destinadas a mostrar información de empleados.
+
+Al crear un empleado, puedes omitir correo si no lo conoces. La columna queda
+en NULL:
+
+INSERT INTO empleados
+  (nombre, nombre_usuario, puesto, hash_contrasena)
+VALUES
+  ('Ana López', 'alopez', 'Recepción', 'PEGA_AQUI_EL_HASH');
+
+Para consultar un empleado por su nombre de usuario:
+
+SELECT id, nombre, nombre_usuario, correo, puesto, activo
+FROM empleados
+WHERE nombre_usuario = 'alopez';
+
+Si luego conoces el correo, actualízalo así:
+
+UPDATE empleados
+SET correo = 'ana@example.com'
+WHERE nombre_usuario = 'alopez';
+
+Revisa primero con SELECT que el nombre de usuario corresponda a la persona
+correcta. Si el correo sigue sin conocerse, no ejecutes el UPDATE y déjalo en
+NULL.
 
 EDITAR Y DAR DE BAJA
 --------------------

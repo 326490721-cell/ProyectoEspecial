@@ -51,6 +51,138 @@
     overflow-wrap: anywhere;
 }
 
+/* Organiza la portada, los datos del equipo y la identidad del negocio. */
+.ficha-proyecto,
+.identidad-institucional,
+.identidad-empresarial {
+    text-align: center;
+}
+
+.ficha-proyecto > h1 {
+    margin-bottom: 0.25rem;
+}
+
+.eslogan {
+    margin: 0.25rem 0;
+    color: rgb(255, 238, 0);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.especialidad {
+    margin: 0.5rem 0 1.25rem;
+    font-weight: bold;
+}
+
+.datos-proyecto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1rem;
+    text-align: left;
+}
+
+.datos-proyecto section {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.datos-proyecto h2,
+.identidad-institucional > h2,
+.identidad-empresarial > h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+}
+
+.datos-proyecto ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.datos-proyecto li {
+    margin: 0.4rem 0;
+    overflow-wrap: anywhere;
+}
+
+.fecha-proyecto {
+    grid-column: 1 / -1;
+    margin: 0;
+    text-align: center;
+}
+
+.escudos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.escudo-proyecto,
+.escudo-pendiente {
+    display: flex;
+    min-height: 12rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 1rem;
+    border: 2px solid rgba(255, 238, 0, 0.55);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.escudo-proyecto img {
+    display: block;
+    width: 100%;
+    height: 8rem;
+    object-fit: contain;
+}
+
+.escudo-proyecto figcaption {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.escudo-pendiente {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.escudo-pendiente span {
+    color: rgb(255, 238, 0);
+    font-size: 0.65rem;
+}
+
+.identidad-empresarial dl {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    text-align: left;
+}
+
+.identidad-empresarial dl > div {
+    display: grid;
+    grid-template-columns: minmax(6rem, 9rem) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.identidad-empresarial dt {
+    color: rgb(255, 238, 0);
+    font-weight: bold;
+}
+
+.identidad-empresarial dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
 /* Da espacio entre las filas de la tabla informativa. */
 .contenedor table {
     width: 100%;

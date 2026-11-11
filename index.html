@@ -2,153 +2,171 @@
 <html lang="en">
 
 <head>
-  <!-- Configuración del documento y hoja de estilos compartida. -->
+  <!-- Document settings and shared stylesheet. -->
   <meta charset="UTF-8">
-  <lenguage>en</language>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FrikSix Arcade</title>
+  <title>FrikSix Arcade | School Project</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Barra superior con acceso al menú y las identidades del proyecto. -->
+  <!-- Top navigation bar and project logos. -->
   <header class="bar">
-    <!-- El botón controla el menú desplegable y anuncia su estado. -->
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+    <!-- The button controls the dropdown menu and announces its state. -->
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">
       <span class="menu-icon" aria-hidden="true"></span>
     </button>
     <a class="brand" href="index.html">FrikSix Arcade</a>
-    <!-- Enlaces principales; Menu.js controla cuándo se muestran. -->
-    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+    <!-- Main navigation links; Menu.js controls their visibility. -->
+    <nav class="menu-panel" id="main-menu" aria-label="Main menu" hidden>
       <a href="index.html">Home</a>
       <a href="catalogo.html">Catalog</a>
       <a href="logIn.html">Log In</a>
     </nav>
-    <!-- Logotipos institucional y del arcade. -->
+    <!-- Institutional and arcade logos. -->
     <div class="image-frame">
-      <img src="assets/logos/ENP_UNAM.png" alt="Logo ENP UNAM">
+      <img src="assets/logos/ENP_UNAM.png" alt="ENP UNAM logo">
     </div>
     <div class="image-frame">
-      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logo FrikSix Arcade">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="FrikSix Arcade logo">
     </div>
   </header>
-  <!-- Imagen panorámica de presentación. -->
-  <div class="baner">
-    <img src="assets/logos/Baner.jpeg" alt="Banner image">
-  </div>
-  <!-- Nombres de profesores-->
-  <div class="contenedor">
-  <div class="profesores">
-    <h2>Our Instructors</h2>
-    <p>John Doe - Lead Instructor</p>
-    <p>Jane Smith - Assistant Instructor</p>
-  </div>
-  </div>
-  <!-- Misión, visión y valores del establecimiento. -->
-  <div class="contenedor">
-    <h1>Welcome to FrikSix Arcade</h1>
-    <h3>There is love in every bit</h3>
-    <table>
-      <tr>
-        <td>
-          <h2>Mission:</h2>
-        </td>
-        <td>
-          <h4>A safe place for young people to explore other worlds.</h4>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2>Vision:</h2>
-        </td>
-        <td>
-          <h4>Young people need a place to have a great time with friends and enjoy unforgettable adventures. That's why
-            we offer a wide range of consoles, from classic favorites to the latest innovations.</h4>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2>Values:</h2>
-        </td>
-        <td>
-          <h4>We welcome everyone with kindness and a spirit of friendship. You can trust that this is a safe place for
-            all.</h4>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <!-- Carrusel horizontal con las consolas y máquinas disponibles. -->
-  <h1>Our GameStations</h1>
-  <section class="carrusel" aria-label="Game consoles" tabindex="0">
-    <!-- Cada tarjeta muestra una imagen y el nombre de una consola. -->
-    <a class="console-link" href="catalogo.html#multigame-title" aria-label="Ver juegos de Multigame Arcade">
+  <main>
+    <!-- Main banner and school project information. -->
+    <div class="baner">
+      <img src="assets/logos/Baner.jpeg" alt="FrikSix Arcade banner">
+    </div>
+    <section class="contenedor ficha-proyecto" aria-labelledby="nombre-proyecto">
+      <h1 id="nombre-proyecto">FrikSix Arcade</h1>
+      <p class="eslogan">There's love in every bit</p>
+      <p class="especialidad">Technical Studies Program in Computing and Accounting (E.T.E.)</p>
+
+      <div class="datos-proyecto">
+        <section aria-labelledby="teachers-title">
+          <h2 id="teachers-title">Teachers</h2>
+          <ul>
+            <li>Santa Isabel Martínez Sánchez</li>
+            <li>Adriana Vega Palos</li>
+            <li>Aurora Margarita Salmerón Ojeda</li>
+          </ul>
+        </section>
+        <section aria-labelledby="team-title">
+          <h2 id="team-title">Team Members and Groups</h2>
+          <p>Participating groups: 61B and 61C</p>
+          <ul>
+            <li>Marcel Gilsoul Reyes — Group 61B</li>
+            <li>AZUL ALHELI AHUMADA ZARCO — Group 61C</li>
+          </ul>
+        </section>
+        <p class="fecha-proyecto"><strong>Project date:</strong> October 31</p>
+      </div>
+    </section>
+
+    <!-- Available logos and placeholders for the missing emblems. -->
+    <section class="contenedor identidad-institucional" aria-labelledby="logos-title">
+      <h2 id="logos-title">Institutional Logos and Emblems</h2>
+      <div class="escudos-grid">
+        <div class="escudo-pendiente" role="img" aria-label="Pending: Technical Studies emblem">
+          Technical Studies Emblem<br><span>To be added</span>
+        </div>
+        <div class="escudo-pendiente" role="img" aria-label="Pending: Domino TIC TAC emblem">
+          Domino TIC TAC Emblem<br><span>To be added</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The business mission, vision, and values. -->
+    <section class="contenedor identidad-empresarial" aria-labelledby="identity-title">
+      <h2 id="identity-title">Our Identity</h2>
+      <dl>
+        <div>
+          <dt>Mission</dt>
+          <dd>To provide young people and families with a safe, inclusive, and welcoming place to spend time together, have fun, and discover video games from different generations.</dd>
+        </div>
+        <div>
+          <dt>Vision</dt>
+          <dd>To become a well-known gathering place for its friendly atmosphere, wide variety of consoles and arcade experiences, and the lasting memories it creates for friends and families.</dd>
+        </div>
+        <div>
+          <dt>Values</dt>
+          <dd>Respect, inclusion, friendship, responsibility, and safe fun for everyone.</dd>
+        </div>
+      </dl>
+    </section>
+
+  <!-- Horizontal carousel of the available consoles and game stations. -->
+  <h2 class="console-title">Our Consoles and Game Stations</h2>
+  <section class="carrusel" aria-label="Game consoles and stations" tabindex="0">
+    <!-- Each card displays a console image, name, and hourly price. -->
+    <a class="console-link" href="catalogo.html#multigame-title" aria-label="View Multigame Arcade games">
       <figure class="console-card">
         <img src="assets/consolas/MaquinitaMultijuegos.jpg" alt="Multigame arcade machine">
         <figcaption>Multigame Arcade</figcaption>
-        <h4>175$ - 10 tokens</h4>
+        <h4>$175 for 10 tokens</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#sega-title" aria-label="Ver juegos de Sega">
+    <a class="console-link" href="catalogo.html#sega-title" aria-label="View Sega games">
       <figure class="console-card">
         <img src="assets/consolas/Sega.png" alt="Sega console">
         <figcaption>Sega Saturn</figcaption>
-        <h4>150$ - hour</h4>
+        <h4>$150 per hour</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#ps4-title" aria-label="Ver juegos de PlayStation 4">
+    <a class="console-link" href="catalogo.html#ps4-title" aria-label="View PlayStation 4 games">
       <figure class="console-card">
         <img src="assets/consolas/PlayStation4.jpg" alt="PlayStation 4 console">
         <figcaption>PlayStation 4</figcaption>
-        <h4>100$ - hour</h4>
+        <h4>$100 per hour</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#ps3-title" aria-label="Ver juegos de PlayStation 3">
+    <a class="console-link" href="catalogo.html#ps3-title" aria-label="View PlayStation 3 games">
       <figure class="console-card">
-        <img src="assets/consolas/PlayStation_3.webp" alt="Consola PlayStation 3">
+        <img src="assets/consolas/PlayStation_3.webp" alt="PlayStation 3 console">
         <figcaption>PlayStation 3</figcaption>
-        <h4>100$ - hour</h4>
+        <h4>$100 per hour</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#switch2-title" aria-label="Ver juegos de Nintendo Switch 2">
+    <a class="console-link" href="catalogo.html#switch2-title" aria-label="View Nintendo Switch 2 games">
       <figure class="console-card">
         <img src="assets/consolas/NintendoSwitch2.jpg" alt="Nintendo Switch 2 console">
         <figcaption>Nintendo Switch 2</figcaption>
-        <h4>100$ - hour</h4>
+        <h4>$100 per hour</h4>
       </figure>
       
     </a>
-    <a class="console-link" href="catalogo.html#nes-title" aria-label="Ver juegos de Nintendo Entertainment System">
+    <a class="console-link" href="catalogo.html#nes-title" aria-label="View Nintendo Entertainment System games">
       <figure class="console-card">
         <img src="assets/consolas/NintentoNES.png" alt="Nintendo Entertainment System console">
         
         <figcaption>Nintendo NES</figcaption>
-        <h4>150$ - hour</h4>
+        <h4>$150 per hour</h4>
       </figure>
 
     </a>
-    <a class="console-link" href="catalogo.html#snes-title" aria-label="Ver juegos de Super Nintendo">
+    <a class="console-link" href="catalogo.html#snes-title" aria-label="View Super Nintendo games">
       <figure class="console-card">
         <img src="assets/consolas/SuperNES.png" alt="Super Nintendo Entertainment System console">
         <figcaption>Super Nintendo NES</figcaption>
-        <h4>150$ - hour</h4>
+        <h4>$150 per hour</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#xbox360-title" aria-label="Ver juegos de Xbox 360">
+    <a class="console-link" href="catalogo.html#xbox360-title" aria-label="View Xbox 360 games">
       <figure class="console-card">
         <img src="assets/consolas/Xbox360.jpg" alt="Xbox 360 console">
         <figcaption>Xbox 360</figcaption>
-        <h4>100$ - hour</h4>
+        <h4>$100 per hour</h4>
       </figure>
     </a>
-    <a class="console-link" href="catalogo.html#wiiu-title" aria-label="Ver juegos de Wii U">
+    <a class="console-link" href="catalogo.html#wiiu-title" aria-label="View Wii U games">
       <figure class="console-card">
         <img src="assets/consolas/WiiU.jpg" alt="Wii U console">
         <figcaption>Wii U</figcaption>
-        <h4>150$ - hour</h4>
+        <h4>$150 per hour</h4>
       </figure>
     </a>
   </section>
-  <!-- Script que activa el menú en esta página. -->
+  </main>
+  <!-- Scripts for the navigation menu and button sounds. -->
   <script src="scripts/Menu.js" defer></script>
   <script src="scripts/ButtonSound.js" defer></script>
 </body>

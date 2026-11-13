@@ -41,6 +41,15 @@
     transition: background-color 180ms ease;
 }
 
+.ERROR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    color: white;
+}
 /* Estilos compartidos para las líneas decorativas del icono. */
 .menu-icon::before,
 .menu-icon::after {

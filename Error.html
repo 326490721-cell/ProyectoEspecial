@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Configuración del documento y hoja de estilos compartida. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrikSix Arcade | Proyecto escolar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+  <!-- Barra de navegación y logotipos del proyecto. -->
+  <header class="bar">
+    <!-- El botón controla el menú desplegable y anuncia su estado. -->
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="index.html">FrikSix Arcade</a>
+    <!-- Enlaces principales; Menu.js controla cuándo se muestran. -->
+    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="FormularioEmpresas.html">Proveedores</a>
+      <a href="FormularioCompras.html">Compras</a>
+      <a href="FormularioVentas.html">Ventas</a>
+      <a href="FormularioPersonal.html">Personal</a>
+      <a href="FormularioMobiliario.html">Mobiliario</a>
+      <a href="logIn.html">Iniciar sesión</a>
+    </nav>
+    <!-- Logotipos institucional y del arcade. -->
+    <div class="image-frame">
+      <img src="assets/logos/ENP_UNAM.png" alt="Escudos de la UNAM y la ENP">
+    </div>
+    <div class="image-frame">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
+    </div>
+  </header>
+  <main>
+    <div class="contenedor">
+        <h1>Error 404: Página no encontrada</h1>
+        <h2>La página que estás buscando no existe.</h2>
+        <button class="button" onclick="window.location.href='index.html'">Volver a la página principal</button>
+    </div>
+  </main>

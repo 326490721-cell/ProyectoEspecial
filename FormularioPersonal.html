@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrikSix Arcade - Personal de cafetería</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/proveedores.css">
+</head>
+
+<body>
+  <header class="bar">
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="index.html">FrikSix Arcade</a>
+    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="FormularioEmpresas.html">Proveedores</a>
+      <a href="FormularioCompras.html">Compras</a>
+      <a href="FormularioVentas.html">Ventas</a>
+      <a href="FormularioPersonal.html" aria-current="page">Personal</a>
+      <a href="logIn.html">Iniciar sesión</a>
+    </nav>
+    <div class="image-frame">
+      <img src="assets/logos/ENP_UNAM.png" alt="Escudos de la UNAM y la ENP">
+    </div>
+    <div class="image-frame image-frame--local">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
+    </div>
+  </header>
+
+  <main class="contenedor proveedores-card">
+    <h1>Registro del personal de cafetería</h1>
+    <p class="proveedores-intro">Completa los datos del empleado. Este formulario solo valida la información; no guarda ni envía los datos.</p>
+
+    <form class="proveedores-form" id="personal-form">
+      <div class="proveedores-fields">
+        <div class="proveedores-field">
+          <label for="nombre-empleado">Nombre del empleado</label>
+          <input id="nombre-empleado" name="nombre-empleado" type="text" maxlength="150" autocomplete="name" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="puesto">Puesto</label>
+          <input id="puesto" name="puesto" type="text" maxlength="100" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="sueldo">Sueldo</label>
+          <input id="sueldo" name="sueldo" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+      </div>
+
+      <p class="proveedores-message" id="personal-message" role="status" hidden></p>
+
+      <div class="proveedores-actions">
+        <button class="proveedores-submit" type="submit">Revisar datos</button>
+        <button class="proveedores-reset" type="reset">Limpiar formulario</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="scripts/Menu.js" defer></script>
+  <script src="scripts/Personal.js" defer></script>
+  <script src="scripts/ButtonSound.js" defer></script>
+</body>
+
+</html>

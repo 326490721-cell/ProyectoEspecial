@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrikSix Arcade - Ventas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/proveedores.css">
+</head>
+
+<body>
+  <header class="bar">
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="index.html">FrikSix Arcade</a>
+    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="FormularioEmpresas.html">Proveedores</a>
+      <a href="FormularioCompras.html">Compras</a>
+      <a href="FormularioVentas.html" aria-current="page">Ventas</a>
+      <a href="logIn.html">Iniciar sesión</a>
+    </nav>
+    <div class="image-frame">
+      <img src="assets/logos/ENP_UNAM.png" alt="Escudos de la UNAM y la ENP">
+    </div>
+    <div class="image-frame image-frame--local">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
+    </div>
+  </header>
+
+  <main class="contenedor proveedores-card">
+    <h1>Registro de venta</h1>
+    <p class="proveedores-intro">Completa los datos de la factura y del producto. Este formulario solo valida la información; no realiza cálculos, ni guarda ni envía los datos.</p>
+
+    <form class="proveedores-form" id="ventas-form">
+      <div class="proveedores-fields">
+        <div class="proveedores-field">
+          <label for="numero-factura">No. de factura</label>
+          <input id="numero-factura" name="numero-factura" type="text" maxlength="30" autocomplete="off" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="fecha-factura">Fecha de la factura</label>
+          <input id="fecha-factura" name="fecha-factura" type="date" required>
+        </div>
+
+        <div class="proveedores-field proveedores-field--wide">
+          <label for="folio-fiscal">Folio fiscal de hacienda de la empresa</label>
+          <input id="folio-fiscal" name="folio-fiscal" type="text" maxlength="36" pattern="[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}" title="Escribe el folio fiscal en formato UUID." autocomplete="off" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="nombre-cliente">Nombre del cliente</label>
+          <input id="nombre-cliente" name="nombre-cliente" type="text" maxlength="150" autocomplete="name" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="rfc-cliente">RFC del cliente</label>
+          <input id="rfc-cliente" name="rfc-cliente" type="text" maxlength="13" pattern="[A-Za-zÑñ&]{3,4}[0-9]{6}[A-Za-z0-9]{3}" title="Escribe un RFC válido de 12 o 13 caracteres." autocomplete="off" required>
+        </div>
+
+        <h2 class="proveedores-field proveedores-field--wide">Cuerpo de la factura</h2>
+
+        <div class="proveedores-field">
+          <label for="clave-producto">Clave del producto</label>
+          <input id="clave-producto" name="clave-producto" type="text" maxlength="30" autocomplete="off" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="nombre-producto">Nombre del producto</label>
+          <input id="nombre-producto" name="nombre-producto" type="text" maxlength="150" autocomplete="off" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="precio-producto">Precio del producto</label>
+          <input id="precio-producto" name="precio-producto" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="cantidad-producto">Cantidad del producto</label>
+          <input id="cantidad-producto" name="cantidad-producto" type="number" min="1" step="1" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="subtotal-producto">Subtotal de cada producto</label>
+          <input id="subtotal-producto" name="subtotal-producto" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="subtotal-factura">Subtotal de todos los productos</label>
+          <input id="subtotal-factura" name="subtotal-factura" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="iva-compra">IVA de la compra</label>
+          <input id="iva-compra" name="iva-compra" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+
+        <div class="proveedores-field">
+          <label for="total-pagar">Total a pagar</label>
+          <input id="total-pagar" name="total-pagar" type="number" min="0" step="0.01" inputmode="decimal" required>
+        </div>
+      </div>
+
+      <p class="proveedores-message" id="ventas-message" role="status" hidden></p>
+
+      <div class="proveedores-actions">
+        <button class="proveedores-submit" type="submit">Revisar datos</button>
+        <button class="proveedores-reset" type="reset">Limpiar formulario</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="scripts/Menu.js" defer></script>
+  <script src="scripts/Ventas.js" defer></script>
+  <script src="scripts/ButtonSound.js" defer></script>
+</body>
+
+</html>

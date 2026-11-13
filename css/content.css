@@ -110,6 +110,23 @@
     text-align: center;
 }
 
+.redes-sociales {
+    max-width: 72rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.redes-sociales h2 {
+    margin: 0 0 0.5rem;
+    color: rgb(255, 238, 0);
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+}
+
+.redes-sociales p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .escudos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));

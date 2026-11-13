@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FrikSix Arcade | Proyecto escolar</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/contabilidad.css">
 </head>
 
 <body>
@@ -22,6 +23,7 @@
       <a href="index.html">Inicio</a>
       <a href="catalogo.html">Catálogo</a>
       <a href="logIn.html">Iniciar sesión</a>
+      <a href="Contabilidad.html">Contabilidad</a>
     </nav>
     <!-- Logotipos institucional y del arcade. -->
     <div class="image-frame">
@@ -31,17 +33,19 @@
       <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
     </div>
   </header>
-  <main>
+  <main class="accounting-page">
     <h1>Contabilidad</h1>
-    <div class="contenedor">
-        <h2>Menú de registros</h2>
-        <h2>Bienvenido al sistema de contabilidad de FrikSix Arcade</h2>
-        <button class="button" onclick="window.location.href='FormularioCompras.html'">Registro de compras</button>
-        <button class="button" onclick="window.location.href='FormularioVentas.html'">Registro de ventas</button>
-        <button class="button" onclick="window.location.href='FormularioPersonal.html'">Registro de personal</button>
-        <button class="button" onclick="window.location.href='FormularioMobiliario.html'">Registro de mobiliario</button>
-        <button class="button" onclick="window.location.href='FormularioEmpresas.html'">Registro de empresas</button>
-    </div>
+    <section class="contenedor accounting-card" aria-labelledby="accounting-title">
+      <h2 id="accounting-title">Sistema de contabilidad</h2>
+      <p>Selecciona el formulario que deseas consultar o registrar.</p>
+      <nav class="accounting-actions" aria-label="Formularios de contabilidad">
+        <a class="accounting-action" href="FormularioCompras.html">Registro de compras</a>
+        <a class="accounting-action" href="FormularioVentas.html">Registro de ventas</a>
+        <a class="accounting-action" href="FormularioPersonal.html">Registro de personal</a>
+        <a class="accounting-action" href="FormularioMobiliario.html">Registro de mobiliario</a>
+        <a class="accounting-action" href="FormularioEmpresas.html">Registro de empresas</a>
+      </nav>
+    </section>
   </main>
 
   <script src="scripts/Menu.js" defer></script>

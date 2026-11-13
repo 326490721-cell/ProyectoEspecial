@@ -49,6 +49,11 @@
     font: inherit;
 }
 
+.proveedores-field input[type="number"] {
+    color-scheme: dark;
+    accent-color: rgb(255, 238, 0);
+}
+
 .proveedores-field textarea {
     min-height: 6rem;
     resize: vertical;
@@ -93,6 +98,33 @@
     outline-offset: 3px;
 }
 
+.proveedores-back {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgb(255, 238, 0);
+    border-radius: 6px;
+    color: rgb(255, 238, 0);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.proveedores-back:hover {
+    background: rgb(174, 0, 255);
+    border-color: rgb(174, 0, 255);
+    color: white;
+}
+
+.proveedores-back:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
 .proveedores-message {
     margin: 1rem 0 0;
     padding: 0.75rem;
@@ -121,5 +153,9 @@
 
     .proveedores-actions {
         flex-direction: column;
+    }
+
+    .proveedores-back {
+        width: 100%;
     }
 }

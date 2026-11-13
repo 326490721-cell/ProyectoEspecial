@@ -31,3 +31,11 @@ body {
     justify-content: center;
     color: white;
 }
+
+.login-page {
+    background-color: rgb(0, 0, 0);
+    background-image: url("../assets/BackGround.gif");
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
+}

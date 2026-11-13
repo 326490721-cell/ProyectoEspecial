@@ -1,0 +1,71 @@
+.accounting-page > h1 {
+    width: min(90%, 72rem);
+    margin: 1rem auto;
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+.accounting-card {
+    width: min(90% - 2rem, 52rem);
+    text-align: center;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+}
+
+.accounting-card h2 {
+    margin: 0;
+    color: rgb(255, 238, 0);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+.accounting-card p {
+    margin: 0.75rem 0 1.5rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.accounting-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 0.85rem;
+}
+
+.accounting-action {
+    display: flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border: 2px solid rgb(255, 238, 0);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.accounting-action:hover {
+    transform: translateY(-2px);
+    border-color: rgb(174, 0, 255);
+    background: rgb(174, 0, 255);
+}
+
+.accounting-action:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .accounting-card {
+        width: calc(100% - 1rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .accounting-action {
+        transition: none;
+    }
+
+    .accounting-action:hover {
+        transform: none;
+    }
+}

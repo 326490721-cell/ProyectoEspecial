@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Configuración del documento y hoja de estilos compartida. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrikSix Arcade | Proyecto escolar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Barra de navegación y logotipos del proyecto. -->
+  <header class="bar">
+    <!-- El botón controla el menú desplegable y anuncia su estado. -->
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="index.html">FrikSix Arcade</a>
+    <!-- Enlaces principales; Menu.js controla cuándo se muestran. -->
+    <nav class="menu-panel" id="main-menu" aria-label="Menú principal" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="logIn.html">Iniciar sesión</a>
+    </nav>
+    <!-- Logotipos institucional y del arcade. -->
+    <div class="image-frame">
+      <img src="assets/logos/ENP_UNAM.png" alt="Escudos de la UNAM y la ENP">
+    </div>
+    <div class="image-frame">
+      <img src="assets/logos/Friksix Arcade.jpeg" alt="Logotipo de FrikSix Arcade">
+    </div>
+  </header>
+  <main>
+    <h1>Contabilidad</h1>
+    <div class="contenedor">
+        <h2>Menú de registros</h2>
+        <h2>Bienvenido al sistema de contabilidad de FrikSix Arcade</h2>
+        <button class="button" onclick="window.location.href='FormularioCompras.html'">Registro de compras</button>
+        <button class="button" onclick="window.location.href='FormularioVentas.html'">Registro de ventas</button>
+        <button class="button" onclick="window.location.href='FormularioPersonal.html'">Registro de personal</button>
+        <button class="button" onclick="window.location.href='FormularioMobiliario.html'">Registro de mobiliario</button>
+        <button class="button" onclick="window.location.href='FormularioEmpresas.html'">Registro de empresas</button>
+    </div>
+  </main>
+
+  <script src="scripts/Menu.js" defer></script>
+</body>
+
+</html>

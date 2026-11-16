@@ -1,6 +1,7 @@
 /* Centra y dimensiona el título principal de una caja de contenido. */
 .contenedor h1 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 1rem;
+    padding-top: 0.5rem;
     font-size: clamp(1rem, 2.8vw, 1.8rem);
     line-height: 1.5;
     text-align: center;
@@ -8,14 +9,14 @@
 
 /* Presenta subtítulos con menor énfasis visual. */
 .contenedor h3 {
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.75rem;
     font-size: clamp(0.7rem, 1.2vw, 0.9rem);
     color: rgba(255, 255, 255, 0.65);
     text-align: center;
 }
 
 /* Mantiene los títulos del catálogo legibles y evita cortes desordenados. */
-.catalog-page > h1 {
+.catalog-page>h1 {
     width: min(90%, 72rem);
     margin: 1.5rem auto 0.5rem;
     padding-inline: 0.5rem;
@@ -26,7 +27,8 @@
 
 .console-title {
     width: min(90%, 72rem);
-    margin: 2rem auto 0.5rem;
+    margin: 2.5rem auto 1rem;
+    padding-top: 0.5rem;
     padding-inline: 0.5rem;
     font-size: clamp(0.85rem, 2vw, 1.3rem);
     line-height: 1.5;
@@ -35,13 +37,13 @@
     overflow-wrap: anywhere;
 }
 
-.catalog-page > section {
+.catalog-page>section {
     margin-bottom: 2.5rem;
 }
 
 .catalog-subtitle {
     width: min(90%, 44rem);
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.25rem;
     padding-inline: 0.5rem;
     color: rgba(255, 255, 255, 0.75);
     font-size: clamp(0.65rem, 1.2vw, 0.85rem);
@@ -58,12 +60,13 @@
     text-align: center;
 }
 
-.ficha-proyecto > h1 {
-    margin-bottom: 0.25rem;
+.ficha-proyecto>h1 {
+    margin-bottom: 0.75rem;
+    padding-top: 0.25rem;
 }
 
 .eslogan {
-    margin: 0.25rem 0;
+    margin: 0.5rem 0;
     color: rgb(255, 238, 0);
     font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
@@ -87,9 +90,10 @@
 }
 
 .datos-proyecto h2,
-.identidad-institucional > h2,
-.identidad-empresarial > h2 {
-    margin: 0 0 0.75rem;
+.identidad-institucional>h2,
+.identidad-empresarial>h2 {
+    margin: 0 0 1rem;
+    padding-top: 0.25rem;
     font-size: clamp(0.85rem, 1.5vw, 1.1rem);
     line-height: 1.6;
 }
@@ -117,7 +121,8 @@
 }
 
 .redes-sociales h2 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.75rem;
+    padding-top: 0.25rem;
     color: rgb(255, 238, 0);
     font-size: clamp(0.85rem, 1.5vw, 1.1rem);
 }
@@ -151,8 +156,15 @@
 
 .escudo-proyecto img {
     display: block;
-    width: 100%;
-    height: 8rem;
+    width: min(100%, 12rem);
+    height: 10rem;
+    object-fit: contain;
+}
+
+.escudo-pendiente img {
+    display: block;
+    width: min(100%, 12rem);
+    height: 10rem;
     object-fit: contain;
 }
 
@@ -181,7 +193,7 @@
     text-align: left;
 }
 
-.identidad-empresarial dl > div {
+.identidad-empresarial dl>div {
     display: grid;
     grid-template-columns: minmax(6rem, 9rem) minmax(0, 1fr);
     gap: 1rem;

@@ -158,7 +158,7 @@ CONFIGURAR UNA TABLA EXISTENTE
 Si la tabla ya existe y todavía no tiene una columna de correo, agrégala una vez:
 
 ALTER TABLE empleados
-  ADD COLUMN correo VARCHAR(254) NULL;
+  ADD COLUMN Permisos VARCHAR(254) NULL;
 
 ALTER TABLE modifica una tabla existente. ADD COLUMN agrega una columna.
 NULL significa que el dato puede quedar sin especificar.
